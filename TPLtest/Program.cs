@@ -36,9 +36,11 @@ namespace TPLtest
             stopwatch.Stop();
             TimeSpan ts = stopwatch.Elapsed;
 
-            
+            int totalJobMiliseconds = Jobs.MilisecondsCounter;
+            int totalExecutionMiliseconds = (int)Math.Round(ts.TotalMilliseconds);
+            int totalSavingsPercent = (int)Math.Round((decimal)100*(totalJobMiliseconds - totalExecutionMiliseconds) / totalJobMiliseconds);
 
-            Console.WriteLine($"Total job time: {Jobs.MilisecondsCounter} ms. Execution time: {Math.Round(ts.TotalMilliseconds)} ms.");
+            Console.WriteLine($"Total job time: {totalJobMiliseconds} ms. Execution time: {totalExecutionMiliseconds} ms. Savings: {totalSavingsPercent} %.");
 
         }
 
